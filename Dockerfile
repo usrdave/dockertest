@@ -1,13 +1,16 @@
-#
-#
 # Version 1
 
 # Start with Official Centos Build Image
 FROM centos:centos7
 
+MAINTAINER David Usher "davidjusher@gmail.com"
+
 # Update the Image
-RUN yum update -y
+RUN yum install -y httpd vim
 
+COPY ./httpd.conf /etc/httpd/conf/
 
-# Output
-ENTRYPOINT tail /var/log/yum.log
+EXPOSE 80
+
+CMD ["httpd"]
+

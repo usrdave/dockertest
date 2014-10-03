@@ -1,0 +1,38 @@
+
+# Download a Base OS Image
+docker pull centos:centos7
+
+# List the image and get the IMAGE_ID
+docker images
+
+# Create a container from the Base Image
+docker run -i -t <IMAGE_ID> /bin/bash
+
+# Exit the container
+exit
+
+# List the containers to get the CONTAINER_ID
+docker ps -l
+
+# Start the container
+docker start <CONTAINER_ID>
+
+# Attach to the container
+docker attach <CONTAINER_ID>
+
+# Save the container as a new image
+docker commit <CONTAINER_ID> dave1
+
+
+------------------
+# Rename an image by giving it a tag
+docker tag ef031db60162 usrdave/dave1
+
+# Remove a Tag
+docker rmi <TAG_NAME>
+
+# Debug Docker
+service docker stop
+docker -dD
+
+
